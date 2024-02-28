@@ -34,5 +34,6 @@ jobs:
           key: ${{ secrets.HOST_KEY }}
           script: |
             cd testapp
-            docker-compose pull ghcr.io/${{ github.repository_owner }}/fooapp:${{ github.sha }}
+            echo ${{ secrets.GHRC_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            docker-compose pull fooapp
             docker-compose up -d --no-deps --force-recreate fooapp
