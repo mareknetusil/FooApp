@@ -33,5 +33,6 @@ jobs:
           username: ${{ secrets.HOST_USERNAME }}
           key: ${{ secrets.HOST_KEY }}
           script: |
+            cd testapp
             docker-compose pull ghcr.io/${{ github.repository_owner }}/fooapp:${{ github.sha }}
             docker-compose up -d --no-deps --force-recreate fooapp
