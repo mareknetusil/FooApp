@@ -17,6 +17,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
+          password: ${{ secrets.GHRC_TOKEN }}
 
       - name: Extract metadata
         uses: docker/metadata-action@v5.6.1
